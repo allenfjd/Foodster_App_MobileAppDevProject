@@ -30,7 +30,7 @@
     <string name="hintAmount">Amount</string>
     <string name="btnPost">Post</string>
     <string name="hintTime">Time to pickup</string>
-    <string name="txtTitlePostFood">Posting new Dish</string>
+    <string name="txtTitlePostFood">Post new or Delete Dish</string>
     <string name="txtForCustomerOpeningActivityTitle">Welcome Customer User</string>
     <string name="txtProfile">Profile Details</string>
     <string name="txtName">Name</string>
@@ -61,6 +61,15 @@
         <item>Richmond</item>
         <item>Surrey</item>
     </string-array>
+    <string name="eastVan">East Vancouver</string>
+    <string name="northVan">North Vancouver</string>
+    <string name="southVan">South Vancouver</string>
+    <string name="westVan">West Vancouver</string>
+    <string name="newWest">New Westminster</string>
+    <string name="richmond">Richmond</string>
+    <string name="burnaby">Burnaby</string>
+    <string name="surrey">Surrey</string>
+
 
     <string name="description">image of a restaurant</string>
     <string name="hintSearch">Search</string>
@@ -74,4 +83,23 @@
     <string name="txtPickup">Pickup</string>
     <string name="txtDelivery">Delivery</string>
     <string name="orderBtn">Order</string>
+    <string name="txtTitleRemoveFood">Please select the dish you would like to remove</string>
+    <string name="btnSaveRemove">Save Changes</string>
+    <string name="txtRemove">Remove</string>
+    <string name="btnAddRem">Add/Remove Food Items</string>
+    <string name="btnViewEdit">View/Edit Food Orders</string>
+    <string name="btnSendRemind">Send a Reminder</string>
+    <string name="btnGenRepo">Generate Reports</string>
+    <string name="btnLogOut">Log out</string>
+    <string name="txtDelete">Delete</string>
+    <string name="txtTitleViewEditDishes">Posted Dishes</string>
+    <string name="txtSave">Save</string>
+    <string name="titleEditDish">Edit the Dish</string>
+    <string name="titleReminder">Orders in progress</string>
+    <string name="txtDiscImage">bell</string>
+    <string name="btnSendReport">Send Report</string>
+    <string name="selectLocation">Please Select Location</string>
+    <string name="availableRestaurants">Available Restaurants</string>
+    <string name="createOrder">Create Order</string>
+    <string name="dishHint">Amount</string>
 </resources>

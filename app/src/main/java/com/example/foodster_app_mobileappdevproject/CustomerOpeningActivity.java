@@ -5,66 +5,72 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.widget.Button;
 
 public class CustomerOpeningActivity extends AppCompatActivity {
-
-    String[] restaurants = {"Chicko Chicken", "Old Spaghetti Factory", "North Noodle House", "Tim Horton's", "Subway"};
-    int[] images = {R.drawable.chicko, R.drawable.spaghetti, R.drawable.noodle, R.drawable.tim, R.drawable.subway};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_opening);
 
-        ArrayList<HashMap<String,String>> aList =
-                new ArrayList<HashMap<String,String>>();
+        Button btnNewWest = findViewById(R.id.newWestBtn);
+        Button btnEastVan = findViewById(R.id.eastVanBtn);
+        Button btnNorthVan = findViewById(R.id.northVantbtn);
+        Button btnSouthVan = findViewById(R.id.southVanBtn);
+        Button btnWestVan = findViewById(R.id.westVanBtn);
+        Button btnRichmond = findViewById(R.id.richmondBtn);
+        Button btnBurnaby = findViewById(R.id.burnabyBtn);
+        Button btnSurrey = findViewById(R.id.surreyBtn);
 
-        for(int i=0;i<restaurants.length;i++){
-            HashMap<String,String> hashMap = new HashMap<>();
-            hashMap.put("txt",restaurants[i]);
-            hashMap.put("images",Integer.toString(images[i]));
-            aList.add(hashMap);
+        btnNewWest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsNewWest.class));
+            }
+        });
 
-            String[] from = {"images","txt"};
-            int[] to = {R.id.imgRestaurant,R.id.txtRestaurant};
-
-            SimpleAdapter adapter = new SimpleAdapter(CustomerOpeningActivity.this,
-                    aList,R.layout.listview,from,to);
-
-            ListView listView = findViewById(R.id.listview);
-
-            listView.setAdapter(adapter);
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view,
-                                        int position, long id) {
-                    switch (position){
-                        case 0:
-                            startActivity(new Intent(CustomerOpeningActivity.this,restaurant1.class));
-                            break;
-                        case 1:
-                            startActivity(new Intent(CustomerOpeningActivity.this,restaurant2.class));
-                            break;
-                        case 2:
-                            startActivity(new Intent(CustomerOpeningActivity.this,restaurant3.class));
-                            break;
-                        case 3:
-                            startActivity(new Intent(CustomerOpeningActivity.this,restaurant4.class));
-                            break;
-                        case 4:
-                            startActivity(new Intent(CustomerOpeningActivity.this,restaurant5.class));
-                            break;
-                    }
-
-                }
-            });
+        btnEastVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsEastVan.class));
+            }
+        });
+        btnNorthVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsNorthVan.class));
+            }
+        });
+        btnSouthVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsSouthVan.class));
+            }
+        });
+        btnWestVan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsWestVan.class));
+            }
+        });
+        btnRichmond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsRichmond.class));
+            }
+        });
+        btnBurnaby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsBurnaby.class));
+            }
+        });
+        btnSurrey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerRestaurantsSurrey.class));
+            }
+        });
         }
     }
-}

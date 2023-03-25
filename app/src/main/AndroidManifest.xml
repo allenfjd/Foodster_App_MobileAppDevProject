@@ -12,6 +12,78 @@
         android:theme="@style/Theme.Foodster_App_MobileAppDevProject"
         tools:targetApi="31">
         <activity
+            android:name=".CustomerCreateOrder"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsSurrey"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsBurnaby"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsRichmond"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsWestVan"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsSouthVan"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsNorthVan"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsEastVan"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantsNewWest"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerRestaurantList"
+            android:exported="false" />
+        <activity
+            android:name=".RestaurantReportFormActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GenerateReportsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SendReminderActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RestaurantOrdersViewEditActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RestaurantEditFoodActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RemoveFoodActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddNewFoodActivity"
             android:exported="false">
             <meta-data

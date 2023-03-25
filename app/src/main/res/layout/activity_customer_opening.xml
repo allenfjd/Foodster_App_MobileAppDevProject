@@ -6,47 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".CustomerOpeningActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/newWestBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/newWest"
+        app:layout_constraintBaseline_toBaselineOf="@+id/richmondBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/surreyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/txtForCustomerOpeningActivityTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/surrey"
+        app:layout_constraintStart_toStartOf="@+id/richmondBtn"
+        app:layout_constraintTop_toBottomOf="@+id/richmondBtn" />
 
-        <ListView
-        android:id="@+id/listview"
-        android:layout_width="0dp"
-        android:layout_height="532dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/westVanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="213dp"
+        android:text="@string/westVan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/southVanBtn"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
-        android:id="@+id/searchRestaurants"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="2dp"
-        android:queryHint="@string/hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/locations"
-        app:layout_constraintHorizontal_bias="0.0"
+    <Button
+        android:id="@+id/burnabyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/burnaby"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newWestBtn" />
+
+    <Button
+        android:id="@+id/richmondBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/richmond"
+        app:layout_constraintStart_toStartOf="@+id/westVanBtn"
+        app:layout_constraintTop_toBottomOf="@+id/westVanBtn" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/txtForCustomerOpeningActivityTitle"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/locations"
-        android:layout_width="176dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="1dp"
-        android:entries="@array/restaurantSpinnerCitySelectionArray"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/selectLocation"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/searchRestaurants"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/eastVanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="27dp"
+        android:text="@string/eastVan"
+        app:layout_constraintBottom_toTopOf="@+id/southVanBtn"
+        app:layout_constraintEnd_toStartOf="@+id/northVantbtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/northVantbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/northVan"
+        app:layout_constraintBaseline_toBaselineOf="@+id/eastVanBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eastVanBtn" />
+
+    <Button
+        android:id="@+id/southVanBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/southVan"
+        app:layout_constraintBaseline_toBaselineOf="@+id/westVanBtn"
+        app:layout_constraintEnd_toStartOf="@+id/westVanBtn"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
