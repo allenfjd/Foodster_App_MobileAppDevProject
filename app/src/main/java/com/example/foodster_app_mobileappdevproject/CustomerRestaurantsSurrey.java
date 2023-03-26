@@ -59,8 +59,12 @@ public class CustomerRestaurantsSurrey extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 HashMap<String,String> chosenData = list.get(position);
                 Integer chosenId = Integer.valueOf(chosenData.get("Id"));
+                String address = chosenData.get("Address");
                 Intent i = new Intent(CustomerRestaurantsSurrey.this,CustomerCreateOrder.class);
-                i.putExtra("key", chosenId);
+                Bundle extras = new Bundle();
+                extras.putString("id", String.valueOf(chosenId));
+                extras.putString("address", address);
+                i.putExtras(extras);
                 startActivity(i);
             }
         });

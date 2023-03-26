@@ -7,29 +7,44 @@
 
     <TextView
         android:id="@+id/dishBox"
-        android:layout_width="330dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="13dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="13dp"
         android:background="@drawable/box"
         android:gravity="center_vertical"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/dishAmount"
-        android:layout_width="78dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="102dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="@string/dishHint"
         android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtPrice"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="193dp"
+        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/dishBox"
-        app:layout_constraintEnd_toEndOf="@+id/dishBox" />
+        app:layout_constraintEnd_toStartOf="@+id/dishAmount"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

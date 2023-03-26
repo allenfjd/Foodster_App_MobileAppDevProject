@@ -192,6 +192,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    public Cursor viewDataFromCustomerTable(String customerEmail) {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_CUSTOMER_NAME + " WHERE " +"CustomerEmail = '" + customerEmail +",";
+        Cursor cursor = database.rawQuery(query, null);
+
+        return cursor;
+    }
     //METHOD TO VIEW DATA ORDER Table in particular Restaurant
     public Cursor viewDataOrderTable(String restaurantId) {
         SQLiteDatabase database = this.getReadableDatabase();

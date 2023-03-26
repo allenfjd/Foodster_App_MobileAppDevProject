@@ -44,8 +44,8 @@ public class CustomerRestaurantsNewWest extends AppCompatActivity {
             data.put("Id", String.valueOf(restaurantId[i]));
             list.add(data);
         }
-        String[]from = {"Restaurant","Address", "Id"};
-        int[]to = {R.id.restaurantName, R.id.restaurantAddress, R.id.testText};
+        String[]from = {"Restaurant","Address"};
+        int[]to = {R.id.restaurantName, R.id.restaurantAddress};
 
         SimpleAdapter adapter = new SimpleAdapter(CustomerRestaurantsNewWest.this,
                 list,R.layout.customer_restaurants_list,from,to);
@@ -59,8 +59,12 @@ public class CustomerRestaurantsNewWest extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 HashMap<String,String> chosenData = list.get(position);
                 Integer chosenId = Integer.valueOf(chosenData.get("Id"));
+                String address = chosenData.get("Address");
                 Intent i = new Intent(CustomerRestaurantsNewWest.this,CustomerCreateOrder.class);
-                i.putExtra("key", chosenId);
+                Bundle extras = new Bundle();
+                extras.putString("id", String.valueOf(chosenId));
+                extras.putString("address", address);
+                i.putExtras(extras);
                 startActivity(i);
             }
         });

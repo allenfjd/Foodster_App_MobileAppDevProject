@@ -102,4 +102,10 @@
     <string name="availableRestaurants">Available Restaurants</string>
     <string name="createOrder">Create Order</string>
     <string name="dishHint">Amount</string>
+    <string name="txtDeliveryDetails">Delivery Details</string>
+    <string name="txtFrom">From</string>
+    <string name="txtTo">To</string>
+    <string name="txtPickupDetails">Pickup Details</string>
+    <string name="txtPickupAddress">Pickup Address</string>
+    <string name="txtPickupTime">Pickup Time</string>
 </resources>
