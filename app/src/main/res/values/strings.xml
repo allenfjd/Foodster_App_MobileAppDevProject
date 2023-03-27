@@ -108,4 +108,5 @@
     <string name="txtPickupDetails">Pickup Details</string>
     <string name="txtPickupAddress">Pickup Address</string>
     <string name="txtPickupTime">Pickup Time</string>
+    <string name="btnShowProfile">Show Profile</string>
 </resources>
