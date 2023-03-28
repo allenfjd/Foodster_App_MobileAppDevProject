@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "FoodsterDatabase.db";
-    final static int DATABASE_VERSION = 1;
+    final static int DATABASE_VERSION = 2;
 
     //TABLE 1 -> Customer
     final static String TABLE_FOR_CUSTOMER_NAME = "Customer_Table";
@@ -48,7 +48,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     //TABLE 4 -> Food stocks of the restaurant
     final static String TABLE_FOR_FOODOFRESTAURANT_NAME = "RestaurantFoodStocks_Table";
     final static String T4COL_1 = "RestaurantId"; // primary key
-    final static String T4COL_2 = "FoodName"; //Food name
+    final static String T4COL_02 = "FoodName"; //Food name
     final static String T4COL_3 = "Date";
     final static String T4COL_4 = "FoodAmount";
     final static String T4COL_5 = "Price";
@@ -76,9 +76,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 T3COL_6 + " TEXT, " + T3COL_7 + " TEXT, " + T3COL_8 + " TEXT, " + T3COL_1 + " TEXT UNIQUE)";
 
         String queryTable4 = "CREATE TABLE " + TABLE_FOR_FOODOFRESTAURANT_NAME + "(" + T4COL_1 + " INTEGER, " +
-                T4COL_2 + " TEXT, " + T4COL_3 + " DATE, " + T4COL_4 + " TEXT, " + T4COL_5 + " TEXT, " +
+                T4COL_02 + " TEXT, " + T4COL_3 + " DATE, " + T4COL_4 + " TEXT, " + T4COL_5 + " TEXT, " +
                 T4COL_6 + " TEXT, " + T4COL_7 + " TEXT, " +
-                "PRIMARY KEY (" + T4COL_1 + ", " + T4COL_2 + "), " +
+                "PRIMARY KEY (" + T4COL_1 + ", " + T4COL_02 + "), " +
                 "FOREIGN KEY (" + T4COL_1 + ") REFERENCES " + TABLE_FOR_RESTAURANT_NAME + "(" + T3COL_3 + "))";
 
         sqLiteDatabase.execSQL(queryTable1);
@@ -169,7 +169,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(T4COL_1, restaurantId);
-        values.put(T4COL_2, foodName);
+        values.put(T4COL_02, foodName);
         values.put(T4COL_3, date);
         values.put(T4COL_4, foodAmount);
         values.put(T4COL_5, price);
@@ -192,6 +192,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    public Cursor viewDataFromCustomerTable(String customerEmail) {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_CUSTOMER_NAME + " WHERE " +"CustomerEmail = '" + customerEmail +",";
+        Cursor cursor = database.rawQuery(query, null);
+
+        return cursor;
+    }
     //METHOD TO VIEW DATA ORDER Table in particular Restaurant
     public Cursor viewDataOrderTable(String restaurantId) {
         SQLiteDatabase database = this.getReadableDatabase();
@@ -208,6 +217,86 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getReadableDatabase();
 
         String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME;
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableNewWest() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'New Westminster'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableBurnaby() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'Burnaby'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableNorthVan() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'North Vancouver'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableEastVan() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'East Vancouver'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableSouthVan() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'South Vancouver'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableWestVan() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'West Vancouver'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableRichmond() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'Richmond'";
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        return cursor;
+    }
+
+    public Cursor viewDataFromRestaurantTableSurrey() {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_RESTAURANT_NAME + " WHERE " + "City= 'Surrey'";
         Cursor cursor = database.rawQuery(query, null);
 
 

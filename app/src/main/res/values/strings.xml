@@ -61,6 +61,15 @@
         <item>Richmond</item>
         <item>Surrey</item>
     </string-array>
+    <string name="eastVan">East Vancouver</string>
+    <string name="northVan">North Vancouver</string>
+    <string name="southVan">South Vancouver</string>
+    <string name="westVan">West Vancouver</string>
+    <string name="newWest">New Westminster</string>
+    <string name="richmond">Richmond</string>
+    <string name="burnaby">Burnaby</string>
+    <string name="surrey">Surrey</string>
+
 
     <string name="description">image of a restaurant</string>
     <string name="hintSearch">Search</string>
@@ -89,4 +98,14 @@
     <string name="titleReminder">Orders in progress</string>
     <string name="txtDiscImage">bell</string>
     <string name="btnSendReport">Send Report</string>
+    <string name="selectLocation">Please Select Location</string>
+    <string name="availableRestaurants">Available Restaurants</string>
+    <string name="createOrder">Create Order</string>
+    <string name="dishHint">Amount</string>
+    <string name="txtDeliveryDetails">Delivery Details</string>
+    <string name="txtFrom">From</string>
+    <string name="txtTo">To</string>
+    <string name="txtPickupDetails">Pickup Details</string>
+    <string name="txtPickupAddress">Pickup Address</string>
+    <string name="txtPickupTime">Pickup Time</string>
 </resources>

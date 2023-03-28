@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerDeliveryOrder">
+
+    <TextView
+        android:id="@+id/txtPickup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtDeliveryDetails"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtPickupAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="74dp"
+        android:text="@string/txtFrom"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRestaurantAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="29dp"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtPickupAddress"
+        app:layout_constraintEnd_toEndOf="@+id/txtPickup" />
+
+    <TextView
+        android:id="@+id/txtTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="34dp"
+        android:text="@string/txtTo"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPickupAddress" />
+
+    <TextView
+        android:id="@+id/txtCustomerAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="3dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtRestaurantAddress"
+        app:layout_constraintTop_toBottomOf="@+id/txtRestaurantAddress" />
+</androidx.constraintlayout.widget.ConstraintLayout>

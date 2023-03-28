@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerCreateOrder">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/createOrder"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/foodRecycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foodRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="382dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="63dp"
+        android:checkedButton="@id/pickupRadio"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/pickupRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtPickup" />
+
+        <RadioButton
+            android:id="@+id/deliveryRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/txtDelivery" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/orderBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
