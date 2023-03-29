@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class CustomerCreateOrder extends AppCompatActivity implements CustomerCreateOrderAdapter.ItemClickListener{
 
@@ -73,7 +74,11 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
 
             }
         });
+
     }
+
+
+
 
     @Override
     public void onItemClick(View view, int position) {
