@@ -37,10 +37,10 @@
     <string name="txtLast">Last Name</string>
     <string name="txtMail">Email</string>
     <string name="txtNumber">Number</string>
-    <string name="txtAdress">Adress</string>
+    <string name="txtAdress">Address</string>
     <string name="email">email@email.com</string>
     <string name="hint">7765433434</string>
-    <string name="hint2">Customer Adress</string>
+    <string name="hint2">Customer Address</string>
     <string name="btnEditProfile">Edit Profile</string>
     <string name="btnLogout">Logout</string>
     <string name="txtEditProfile">Edit Profile</string>
@@ -86,7 +86,7 @@
     <string name="txtTitleRemoveFood">Please select the dish you would like to remove</string>
     <string name="btnSaveRemove">Save Changes</string>
     <string name="txtRemove">Remove</string>
-    <string name="btnAddRem">Add/Remove Food Items</string>
+    <string name="btnAddRem">Add New/Remove Food Items</string>
     <string name="btnViewEdit">View/Edit Food Orders</string>
     <string name="btnSendRemind">Send a Reminder</string>
     <string name="btnGenRepo">Generate Reports</string>

@@ -71,6 +71,7 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantOpeningActivity.this,MainActivityLogin.class));
+                finishAffinity();
             }
         });
         btnSendRemind.setOnClickListener(new View.OnClickListener() {

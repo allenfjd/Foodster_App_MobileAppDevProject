@@ -67,7 +67,7 @@ public class RestaurantProfile extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(RestaurantProfile.this, MainActivityLogin.class);
                 startActivity(intent);
-                finish();
+                finishAffinity();
             }
         });
     }
