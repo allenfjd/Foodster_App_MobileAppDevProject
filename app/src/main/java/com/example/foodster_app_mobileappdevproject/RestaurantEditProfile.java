@@ -11,12 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RestaurantEditProfile extends AppCompatActivity {
-
+    DataBaseHelper dbh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_edit_profile);
+        dbh = new DataBaseHelper( this);
         EditText RestaurantFirstName=findViewById(R.id.RPersonNameEditProfile);
         EditText RestaurantLastName=findViewById(R.id.etxtRLastName);
         EditText RestaurantMail=findViewById(R.id.etxtREmailEditProfile);
@@ -29,11 +30,13 @@ public class RestaurantEditProfile extends AppCompatActivity {
         String lastNameOwner = preferences.getString("LastNameOwner", "");
         String phoneNumberRestaurant = preferences.getString("PhoneNumberRestaurant", "");
         String address = preferences.getString("AddressRestaurant", "");
+        String email = preferences.getString("RestaurantEmail", "defaultValue");
 
         RestaurantFirstName.setText(firstNameOwner);
         RestaurantLastName.setText(lastNameOwner);
         RestaurantPhone.setText(phoneNumberRestaurant);
         RestaurantAdress.setText(address);
+        RestaurantMail.setText(email);
         Button buttonSaveChanges = findViewById(R.id.btnRSaveChanges);
         buttonSaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +45,8 @@ public class RestaurantEditProfile extends AppCompatActivity {
                 String newLastName = RestaurantLastName.getText().toString();
                 String newPhone = RestaurantPhone.getText().toString();
                 String newAddress = RestaurantAdress.getText().toString();
-
+                System.out.println(newFirstName+newLastName+newAddress+newPhone);
+                dbh.updateInfo(email,newFirstName,newLastName,newPhone, newAddress);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("FirstNameOwner", newFirstName);
                 editor.putString("LastNameOwner", newLastName);

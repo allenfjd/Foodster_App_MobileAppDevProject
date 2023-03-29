@@ -26,31 +26,27 @@ public class CustomerProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
-        TextView CustomerFirstName=findViewById(R.id.txtCName);
-        TextView CustomerLastName=findViewById(R.id.txtCLName);
-        TextView CustomerMail=findViewById(R.id.txtCMail);
-        TextView CustomerPhone=findViewById(R.id.txtCNumber);
-        TextView CustomerAdress=findViewById(R.id.txtCAdress);
+        CustomerFirstName=findViewById(R.id.txtCName);
+        CustomerLastName=findViewById(R.id.txtCLName);
+        CustomerMail=findViewById(R.id.txtCMail);
+        CustomerPhone=findViewById(R.id.txtCNumber);
+        CustomerAdress=findViewById(R.id.txtCAdress);
         Button btnEditProfile=findViewById(R.id.btnCEditProfile);
         Button btnLogout=findViewById(R.id.btnCLogout);
 
-//        SharedPreferences preferences =
-//                PreferenceManager.getDefaultSharedPreferences(this);
-//        String email = preferences.getString("RestaurantEmail", "defaultValue");
-//        String restaurantId = preferences.getString("RestaurantID", "defaultValue");
-//        String password = preferences.getString("PasswordOfRestaurant", "defaultValue");
-//        String restaurantName = preferences.getString("RestaurantName", "defaultValue");
-//        String firstNameOwner = preferences.getString("FirstNameOwner", "defaultValue");
-//        String lastNameOwner = preferences.getString("LastNameOwner", "defaultValue");
-//        String phoneNumberRestaurant = preferences.getString("PhoneNumberRestaurant", "defaultValue");
-//        String city = preferences.getString("City", "defaultValue");
-//        String address = preferences.getString("AddressRestaurant", "defaultValue");
+        SharedPreferences preferences =
+                PreferenceManager.getDefaultSharedPreferences(this);
+        String email = preferences.getString("CustomerEmail", "defaultValue");
+        String firstNameCustomer = preferences.getString("FirstNameCustomer", "defaultValue");
+        String lastNameCustomer = preferences.getString("LastNameCustomer", "defaultValue");
+        String phoneNumberCustomer = preferences.getString("PhoneNumberCustomer", "defaultValue");
+        String addressCustomer = preferences.getString("AddressCustomer", "defaultValue");
 
-//        CustomerFirstName.setText(firstNameOwner);
-//        CustomerLastName.setText(lastNameOwner);
-//        CustomerMail.setText(email);
-//        CustomerPhone.setText(phoneNumberRestaurant);
-//        CustomerAdress.setText(address);
+        CustomerFirstName.setText(firstNameCustomer);
+        CustomerLastName.setText(lastNameCustomer);
+        CustomerMail.setText(email);
+        CustomerPhone.setText(phoneNumberCustomer);
+        CustomerAdress.setText(addressCustomer);
 
         btnEditProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -72,24 +68,20 @@ public class CustomerProfile extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//
-//        // Retrieve updated preferences
-//        String email = preferences.getString("RestaurantEmail", "defaultValue");
-//        String restaurantId = preferences.getString("RestaurantID", "defaultValue");
-//        String password = preferences.getString("PasswordOfRestaurant", "defaultValue");
-//        String restaurantName = preferences.getString("RestaurantName", "defaultValue");
-//        String firstNameOwner = preferences.getString("FirstNameOwner", "defaultValue");
-//        String lastNameOwner = preferences.getString("LastNameOwner", "defaultValue");
-//        String phoneNumberRestaurant = preferences.getString("PhoneNumberRestaurant", "defaultValue");
-//        String city = preferences.getString("City", "defaultValue");
-//        String address = preferences.getString("AddressRestaurant", "defaultValue");
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Update text views
-//        CustomerFirstName.setText(firstNameOwner);
-//        CustomerLastName.setText(lastNameOwner);
-//        CustomerMail.setText(email);
-//        CustomerPhone.setText(phoneNumberRestaurant);
-//        CustomerAdress.setText(address);
+        // Retrieve updated preferences
+        String email = preferences.getString("CustomerEmail", "defaultValue");
+        String firstNameCustomer = preferences.getString("FirstNameCustomer", "defaultValue");
+        String lastNameCustomer = preferences.getString("LastNameCustomer", "defaultValue");
+        String phoneNumberCustomer = preferences.getString("PhoneNumberCustomer", "defaultValue");
+        String addressCustomer = preferences.getString("AddressCustomer", "defaultValue");
+
+        //Update text views
+        CustomerFirstName.setText(firstNameCustomer);
+        CustomerLastName.setText(lastNameCustomer);
+        CustomerMail.setText(email);
+        CustomerPhone.setText(phoneNumberCustomer);
+        CustomerAdress.setText(addressCustomer);
     }
 }

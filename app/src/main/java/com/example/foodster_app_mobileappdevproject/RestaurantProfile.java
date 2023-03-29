@@ -35,7 +35,7 @@ public class RestaurantProfile extends AppCompatActivity {
 
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
-        String email = preferences.getString("RestaurantEmail", "defaultValue");
+        String email = preferences.getString("CustomerEmail", "defaultValue");
         String restaurantId = preferences.getString("RestaurantID", "defaultValue");
         String password = preferences.getString("PasswordOfRestaurant", "defaultValue");
         String restaurantName = preferences.getString("RestaurantName", "defaultValue");

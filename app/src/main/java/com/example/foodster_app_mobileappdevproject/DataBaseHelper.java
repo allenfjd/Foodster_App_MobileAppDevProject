@@ -359,6 +359,22 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //METHOD TO UPDATE RESTAURANT OWNERS INFORMATION
+    public Boolean updateInfo(String email, String newFirstName, String newLastName,String newPhone,String newAdress) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "UPDATE Restaurant_Table  SET FirstNameOwner = '"+newFirstName+"',LastNameOwner = '"+newLastName+"',PhoneNumberRestaurant = '"+newPhone+"', AddressRestaurant = '"+newAdress+"' WHERE RestaurantUserNameEmail= '"+ email +"'";
+        database.execSQL(query);
+        System.out.println("hello"+email);
+        return true;
+    }
+    //METHOD TO UPDATE RESTAURANT OWNERS INFORMATION
+    public Boolean updateInfoCustomer(String email, String newFirstName, String newLastName,String newPhone,String newAdress) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String query = "UPDATE Customer_Table  SET FirstNameCustomer = '"+newFirstName+"',LastNameCustomer = '"+newLastName+"',PhoneNumberCustomer = '"+newPhone+"', AddressCustomer = '"+newAdress+"' WHERE CustomerEmail= '"+ email +"'";
+        database.execSQL(query);
+        System.out.println("hello"+email);
+        return true;
+    }
 
 
 }

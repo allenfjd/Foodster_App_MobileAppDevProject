@@ -22,6 +22,15 @@ public class CustomerOpeningActivity extends AppCompatActivity {
         Button btnRichmond = findViewById(R.id.richmondBtn);
         Button btnBurnaby = findViewById(R.id.burnabyBtn);
         Button btnSurrey = findViewById(R.id.surreyBtn);
+        Button btnProfile= findViewById(R.id.btnProfile);
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CustomerOpeningActivity.this, CustomerProfile.class));
+
+            }
+        });
 
         btnNewWest.setOnClickListener(new View.OnClickListener() {
             @Override
