@@ -61,19 +61,26 @@ public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView dishBox;
         TextView txtPrice;
+
         TextView availableAmount;
         EditText amountOrdered;
 
         ArrayList<String> dishesOrdered = new ArrayList<>();
 
+        EditText dishNumber;
+        Button button;
+
+
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             dishBox = itemView.findViewById(R.id.dishBox);
             txtPrice = itemView.findViewById((R.id.txtPrice));
+
             availableAmount = itemView.findViewById(R.id.amountAvailable);
             amountOrdered = itemView.findViewById(R.id.orderedAmount);
-
+//            button = itemView.findViewById(R.id.btnOrder);
             itemView.setOnClickListener(this);
+//            button.setOnClickListener(this);
         }
 
         @Override
