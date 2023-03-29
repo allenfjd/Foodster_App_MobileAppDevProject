@@ -72,6 +72,9 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantOpeningActivity.this,MainActivityLogin.class));
                 finishAffinity();
+                SharedPreferences.Editor editorToDelete = preferences.edit();
+                editorToDelete.clear();
+                editorToDelete.commit();
             }
         });
         btnSendRemind.setOnClickListener(new View.OnClickListener() {

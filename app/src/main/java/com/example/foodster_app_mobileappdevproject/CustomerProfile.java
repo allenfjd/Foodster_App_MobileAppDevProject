@@ -61,7 +61,10 @@ public class CustomerProfile extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(CustomerProfile.this, MainActivityLogin.class);
                     startActivity(intent);
-                    finish();
+                    finishAffinity();
+                    SharedPreferences.Editor editorToDelete = preferences.edit();
+                    editorToDelete.clear();
+                    editorToDelete.commit();
                 }
             });
     }

@@ -2,6 +2,7 @@ package com.example.foodster_app_mobileappdevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -61,7 +62,6 @@ public class CustomerEditProfile extends AppCompatActivity {
 
 
                 Toast.makeText(CustomerEditProfile.this, "Related field is updated", Toast.LENGTH_LONG).show();
-
                 finish();
             }
         });

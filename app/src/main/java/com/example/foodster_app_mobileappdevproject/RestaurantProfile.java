@@ -68,6 +68,9 @@ public class RestaurantProfile extends AppCompatActivity {
                 Intent intent = new Intent(RestaurantProfile.this, MainActivityLogin.class);
                 startActivity(intent);
                 finishAffinity();
+                SharedPreferences.Editor editorToDelete = preferences.edit();
+                editorToDelete.clear();
+                editorToDelete.commit();
             }
         });
     }
