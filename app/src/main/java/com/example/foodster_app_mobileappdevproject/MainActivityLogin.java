@@ -119,6 +119,14 @@ public class MainActivityLogin extends AppCompatActivity {
                                 if (loginUser.equals(cursorCustomerTable.getString(0))){
                                     strForCustomerTablePassword = cursorCustomerTable.getString(1);
                                     userFoundInCustomerTable = true;
+                                    SharedPreferences.Editor editorc = preferences.edit();
+                                    editorc.putString("CustomerEmail", cursorCustomerTable.getString(0));
+                                    editorc.putString("PasswordOfUser", cursorCustomerTable.getString(1));
+                                    editorc.putString("FirstNameCustomer", cursorCustomerTable.getString(2));
+                                    editorc.putString("LastNameCustomer", cursorCustomerTable.getString(3));
+                                    editorc.putString("AddressCustomer", cursorCustomerTable.getString(4));
+                                    editorc.putString("PhoneNumberCustomer", cursorCustomerTable.getString(5));
+                                    editorc.commit();
                                 }
                             }
                             if (userFoundInCustomerTable) {
