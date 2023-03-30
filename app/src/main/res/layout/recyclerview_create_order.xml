@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="360dp"
-    android:layout_height="120dp">
+    android:layout_width="380dp"
+    android:layout_height="140dp">
 
     <TextView
         android:id="@+id/dishBox"
@@ -18,20 +18,21 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/dishAmount"
-        android:layout_width="102dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="32dp"
+        android:id="@+id/orderedAmount"
+        android:layout_width="91dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="29dp"
         android:ems="10"
         android:hint="@string/dishHint"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPrice"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -39,11 +40,18 @@
         android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginEnd="193dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/amountAvailable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/amountAvailable" />
+
+    <TextView
+        android:id="@+id/amountAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/dishBox"
-        app:layout_constraintEnd_toStartOf="@+id/dishAmount"
         app:layout_constraintStart_toStartOf="parent" />
 
 

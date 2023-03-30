@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     final static String DATABASE_NAME = "FoodsterDatabase.db";
-    final static int DATABASE_VERSION = 2;
+    final static int DATABASE_VERSION = 4;
 
     //TABLE 1 -> Customer
     final static String TABLE_FOR_CUSTOMER_NAME = "Customer_Table";
@@ -196,7 +196,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor viewDataFromCustomerTable(String customerEmail) {
         SQLiteDatabase database = this.getReadableDatabase();
 
-        String query = "SELECT * FROM " + TABLE_FOR_CUSTOMER_NAME + " WHERE " +"CustomerEmail = '" + customerEmail +",";
+        String query = "SELECT * FROM " + TABLE_FOR_CUSTOMER_NAME + " WHERE " +"CustomerEmail = '" + customerEmail +"'";
         Cursor cursor = database.rawQuery(query, null);
 
         return cursor;

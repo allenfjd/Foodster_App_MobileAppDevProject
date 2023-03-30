@@ -26,18 +26,18 @@ public class CustomerDeliveryOrder extends AppCompatActivity {
             address = extras.getString("address");
         }
         txtRestaurant.setText(address);
-//
-//        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        String customerEmail = preferences.getString("CustomerEmail","DefaultValue");
-//        dbh =new DataBaseHelper(this);
-//        Cursor c = dbh.viewDataFromCustomerTable(customerEmail);
-//        String customerAddress = "";
-//        if(c.getCount()>0){
-//            while(c.moveToNext()){
-//                customerAddress = c.getString(4);
-//            }
-//        }
-//
-//        txtCustomer.setText(customerAddress);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String customerEmail = preferences.getString("CustomerEmail","DefaultValue");
+        dbh =new DataBaseHelper(this);
+        Cursor c = dbh.viewDataFromCustomerTable(customerEmail);
+        String customerAddress = "";
+        if(c.getCount()>0){
+            while(c.moveToNext()){
+                customerAddress = c.getString(4);
+            }
+        }
+
+        txtCustomer.setText(customerAddress);
     }
 }

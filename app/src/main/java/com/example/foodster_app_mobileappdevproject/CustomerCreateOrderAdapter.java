@@ -4,23 +4,27 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
     String[]dishNames;
-    String[]dishAmount;
+    String[]availableAmount;
     String[]dishPrices;
     LayoutInflater mInflater;
-
     ItemClickListener itemClickListener;
 
-    public CustomerCreateOrderAdapter(Context context, String[]dishNames, String[]dishAmount, String[]dishPrices){
+    public CustomerCreateOrderAdapter(Context context, String[]dishNames, String[]availableAmount, String[]dishPrices){
         this.dishNames = dishNames;
-        this.dishAmount = dishAmount;
+        this.availableAmount = availableAmount;
         this.dishPrices = dishPrices;
         mInflater = LayoutInflater.from(context);
     }
@@ -35,8 +39,9 @@ public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ((ViewHolder)holder).dishBox.setText(" " + dishNames[position] + " (" + dishAmount[position] + ")");
+        ((ViewHolder)holder).dishBox.setText("  " + dishNames[position]);
         ((ViewHolder)holder).txtPrice.setText("$" + dishPrices[position]);
+        ((ViewHolder)holder).availableAmount.setText("Available: " + availableAmount[position]);
     }
 
     @Override
@@ -52,24 +57,36 @@ public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
         void onItemClick(View view, int position);
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView dishBox;
         TextView txtPrice;
+
+        TextView availableAmount;
+        EditText amountOrdered;
+
+        ArrayList<String> dishesOrdered = new ArrayList<>();
+
         EditText dishNumber;
+        Button button;
+
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             dishBox = itemView.findViewById(R.id.dishBox);
             txtPrice = itemView.findViewById((R.id.txtPrice));
-            dishNumber = itemView.findViewById(R.id.dishAmount);
+
+            availableAmount = itemView.findViewById(R.id.amountAvailable);
+            amountOrdered = itemView.findViewById(R.id.orderedAmount);
+//            button = itemView.findViewById(R.id.btnOrder);
             itemView.setOnClickListener(this);
+//            button.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             if(itemClickListener!=null){
                 itemClickListener.onItemClick(view,getAdapterPosition());
-                dishNumber.getText();
             }
         }
     }
