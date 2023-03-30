@@ -11,24 +11,26 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="29dp"
             android:text="@string/txtProfile"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtName"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="17dp"
+            android:layout_marginEnd="83dp"
             android:text="@string/txtName"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/txtRName"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
@@ -37,10 +39,12 @@
             android:layout_height="wrap_content"
 
             android:layout_marginStart="30dp"
+            android:layout_marginEnd="52dp"
             android:text="@string/txtLast"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBaseline_toBaselineOf="@+id/txtRLName"
+            app:layout_constraintEnd_toStartOf="@+id/txtRLName"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -48,35 +52,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="49dp"
+            android:layout_marginEnd="85dp"
+            android:layout_marginBottom="35dp"
             android:text="@string/txtMail"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLast" />
+            app:layout_constraintBottom_toTopOf="@+id/txtNumber"
+            app:layout_constraintEnd_toStartOf="@+id/txtREmail"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txtNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="29dp"
+            android:layout_marginEnd="65dp"
+            android:layout_marginBottom="31dp"
             android:text="@string/txtNumber"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtmail" />
+            app:layout_constraintBottom_toTopOf="@+id/txtAdress"
+            app:layout_constraintEnd_toStartOf="@+id/txtRPhone"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/txtAdress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="29dp"
-            android:layout_marginBottom="45dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/txtAdress"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/txtRAdress"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -104,71 +114,80 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="27dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="53dp"
             android:text="@string/txtRestaurant"
             android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtRRestaurant"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txtREmail" />
+            app:layout_constraintTop_toTopOf="@+id/txtRRestaurant" />
 
         <TextView
             android:id="@+id/txtRName"
-            android:layout_width="191dp"
+            android:layout_width="0dp"
             android:layout_height="21dp"
-            android:layout_marginStart="15dp"
             android:layout_marginTop="37dp"
-            android:layout_marginBottom="37dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="34dp"
             app:layout_constraintBottom_toTopOf="@+id/txtRLName"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtName"
             app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <TextView
             android:id="@+id/txtRLName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="73dp"
-            app:layout_constraintStart_toStartOf="@+id/txtRName"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="90dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtRPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtLast"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <TextView
             android:id="@+id/txtREmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="41dp"
-            app:layout_constraintEnd_toStartOf="@+id/txtRPhone"
-            app:layout_constraintStart_toStartOf="@+id/txtRPhone"
-            app:layout_constraintTop_toBottomOf="@+id/txtRLName" />
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="46dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtRPhone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtmail"
+            app:layout_constraintTop_toBottomOf="@+id/txtLast" />
 
         <TextView
             android:id="@+id/txtRPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
-            app:layout_constraintStart_toStartOf="@+id/txtRName"
-            app:layout_constraintTop_toBottomOf="@+id/txtREmail" />
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="74dp"
+            android:layout_marginBottom="37dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtRAdress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtNumber" />
 
         <TextView
             android:id="@+id/txtRAdress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:textColor="@color/black"
-            app:layout_constraintBaseline_toBaselineOf="@+id/txtAdress"
-            app:layout_constraintStart_toStartOf="@+id/txtRPhone" />
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtAdress"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtRRestaurant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="7dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/txtRAdress"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
+            android:layout_width="0dp"
+            android:layout_height="21dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/txtRAdress" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

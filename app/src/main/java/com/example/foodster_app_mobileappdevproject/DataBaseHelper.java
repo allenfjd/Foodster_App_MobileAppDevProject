@@ -360,19 +360,19 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     //METHOD TO UPDATE RESTAURANT OWNERS INFORMATION
-    public Boolean updateInfo(String email, String newFirstName, String newLastName,String newPhone,String newAdress) {
+    public Boolean updateInfo(String email, String newFirstName, String newLastName,String newPhone,String newAdress,String newRestaurantName) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "UPDATE Restaurant_Table  SET FirstNameOwner = '"+newFirstName+"',LastNameOwner = '"+newLastName+"',PhoneNumberRestaurant = '"+newPhone+"', AddressRestaurant = '"+newAdress+"' WHERE RestaurantUserNameEmail= '"+ email +"'";
+        String query = "UPDATE Restaurant_Table  SET FirstNameOwner = '"+newFirstName+"',LastNameOwner = '"+newLastName+"',PhoneNumberRestaurant = '"+newPhone+"', AddressRestaurant = '"+newAdress+"',RestaurantName = '"+newRestaurantName+"'  WHERE RestaurantUserNameEmail= '"+ email +"'";
         database.execSQL(query);
-        System.out.println("hello"+email);
+//        System.out.println("hello"+email);
         return true;
     }
-    //METHOD TO UPDATE RESTAURANT OWNERS INFORMATION
+    //METHOD TO UPDATE CUSTOMER INFORMATION
     public Boolean updateInfoCustomer(String email, String newFirstName, String newLastName,String newPhone,String newAdress) {
         SQLiteDatabase database = this.getReadableDatabase();
         String query = "UPDATE Customer_Table  SET FirstNameCustomer = '"+newFirstName+"',LastNameCustomer = '"+newLastName+"',PhoneNumberCustomer = '"+newPhone+"', AddressCustomer = '"+newAdress+"' WHERE CustomerEmail= '"+ email +"'";
         database.execSQL(query);
-        System.out.println("hello"+email);
+//        System.out.println("hello"+email);
         return true;
     }
 
