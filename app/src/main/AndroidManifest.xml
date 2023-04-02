@@ -12,6 +12,13 @@
         android:theme="@style/Theme.Foodster_App_MobileAppDevProject"
         tools:targetApi="31">
         <activity
+            android:name=".DeleteConfirmActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CustomerPickupOrder"
             android:exported="false" />
         <activity
