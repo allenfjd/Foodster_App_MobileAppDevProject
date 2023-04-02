@@ -119,4 +119,7 @@
     <string name="txtTitleDisc">Discription:</string>
     <string name="btnCancel">Cancel</string>
     <string name="btnDel">Delete</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="finalOrder">ORDER NOW</string>
 </resources>

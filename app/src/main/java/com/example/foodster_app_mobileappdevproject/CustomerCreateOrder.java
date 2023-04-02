@@ -7,16 +7,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class CustomerCreateOrder extends AppCompatActivity implements CustomerCreateOrderAdapter.ItemClickListener{
 
     DataBaseHelper dbh;
     CustomerCreateOrderAdapter adapter;
+    List<Stock> stockList;
+    OrderAdapter adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +36,7 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
         RadioButton radioPickup = findViewById(R.id.pickupRadio);
         RadioButton radioDelivery = findViewById(R.id.deliveryRadio);
         Bundle extras = getIntent().getExtras();
+        stockList=new ArrayList<>();
         String restaurantIds = null;
         String address = "";
         if (extras != null) {
@@ -35,40 +46,51 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
         dbh = new DataBaseHelper(this);
 
         Cursor c = dbh.viewDataFromFoodStocksTable(String.valueOf(restaurantIds));
-        String[] dishName = new String[c.getCount()];
-        String[] dishAmount = new String[c.getCount()];
-        String[] dishPrices = new String[c.getCount()];
         String pickupTime = new String();
-        int count = 0;
-        if (c.getCount() > 0) {
+
+
+        for(int i=0;i <c.getCount();i++){
             while (c.moveToNext()) {
-                dishName[count] = c.getString(1);
-                dishAmount[count] = c.getString(3);
-                dishPrices[count] = c.getString(4);
+                Stock stock = new Stock();
+                stock.setDishName(c.getString(1));
+                stock.setAvailableAmount(c.getString(3));
+                stock.setDishPrice( c.getString(4));
                 pickupTime = c.getString(5);
-                count++;
+                stockList.add(stock);
             }
         }
 
         RecyclerView recyclerView = findViewById(R.id.foodRecycler);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        adapter = new CustomerCreateOrderAdapter(this, dishName, dishAmount, dishPrices);
-        recyclerView.setAdapter(adapter);
+
+        adapter1 = new OrderAdapter(this, stockList);
+        recyclerView.setAdapter(adapter1);
+
         String finalAddress = address;
         String pickup = pickupTime;
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(radioPickup.isChecked()){
+                    String order = getOrders();
+                    String totalPrice = calculatePrice();
                     Intent i = new Intent(CustomerCreateOrder.this,CustomerPickupOrder.class);
                     Bundle extras = new Bundle();
                     extras.putString("address", finalAddress);
                     extras.putString("pickup", pickup);
+                    extras.putString("order", order);
+                    extras.putString("price", totalPrice);
                     i.putExtras(extras);
                     startActivity(i);
                 }else if(radioDelivery.isChecked()){
+                    String order = getOrders();
+                    String totalPrice = calculatePrice();
                     Intent a = new Intent(CustomerCreateOrder.this,CustomerDeliveryOrder.class);
-                    a.putExtra("address", finalAddress);
+                    Bundle extra = new Bundle();
+                    extra.putString("address", finalAddress);
+                    extra.putString("order", order);
+                    extra.putString("price", totalPrice);
+                    a.putExtras(extra);
                     startActivity(a);
                 }
 
@@ -78,8 +100,33 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
     }
 
 
+    private String getOrders() {
+        if (adapter1.getSelected().size() > 0) {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < adapter1.getSelected().size(); i++) {
+                str.append(adapter1.getSelected().get(i).getDishName() + " - Price: " + adapter1.getSelected().get(i).getDishPrice());
+                str.append("\n");
+            }
+            return str.toString().trim();
+        }
+        else{return "no orders";}
+    }
 
-
+    private String calculatePrice(){
+        if (adapter1.getSelected().size() > 0) {
+            Double totalPrice = 0.0;
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < adapter1.getSelected().size(); i++) {
+                Double initialPrice = Double.parseDouble(adapter1.getSelected().get(i).getDishPrice());
+                 totalPrice += initialPrice;
+            }
+            str.append("Total price: $" + totalPrice);
+            return str.toString().trim();
+        }
+        else{
+            return "";
+        }
+    }
     @Override
     public void onItemClick(View view, int position) {
 
