@@ -27,7 +27,7 @@ public class DeleteConfirmActivity extends AppCompatActivity {
         TextView txtTitlePrice = findViewById(R.id.txtPriceDishDel);
         TextView txtTitleStock = findViewById(R.id.txtAmountDishDel);
         TextView txtTitleDisc = findViewById(R.id.txtDiscDishDel);
-        TextView txtTEST = findViewById(R.id.txtTest10);
+//        TextView txtTEST = findViewById(R.id.txtTest10);
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         String restaurantId = preferences.getString("RestaurantID", "defaultValue");
