@@ -1,6 +1,8 @@
 package com.example.foodster_app_mobileappdevproject;
 
 import android.content.Context;
+import android.graphics.ColorSpace;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
     String[]dishNames;
     String[]availableAmount;
     String[]dishPrices;
+
     LayoutInflater mInflater;
     ItemClickListener itemClickListener;
-
     public CustomerCreateOrderAdapter(Context context, String[]dishNames, String[]availableAmount, String[]dishPrices){
         this.dishNames = dishNames;
         this.availableAmount = availableAmount;
@@ -57,18 +60,11 @@ public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
         void onItemClick(View view, int position);
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView dishBox;
         TextView txtPrice;
-
         TextView availableAmount;
         EditText amountOrdered;
-
-        ArrayList<String> dishesOrdered = new ArrayList<>();
-
-        EditText dishNumber;
-        Button button;
 
 
         public ViewHolder(@NonNull View itemView){
@@ -77,10 +73,10 @@ public class CustomerCreateOrderAdapter extends RecyclerView.Adapter {
             txtPrice = itemView.findViewById((R.id.txtPrice));
 
             availableAmount = itemView.findViewById(R.id.amountAvailable);
-            amountOrdered = itemView.findViewById(R.id.orderedAmount);
-//            button = itemView.findViewById(R.id.btnOrder);
+//            amountOrdered = itemView.findViewById(R.id.orderedAmount);
+
             itemView.setOnClickListener(this);
-//            button.setOnClickListener(this);
+
         }
 
         @Override
