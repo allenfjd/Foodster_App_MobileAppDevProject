@@ -110,4 +110,13 @@
     <string name="txtPickupTime">Pickup Time</string>
     <string name="btnShowProfile">Show Profile</string>
     <string name="btnProfile">Customer Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtTitleConfirmDelete">Confirm the Dish deletion:</string>
+    <string name="txtTitleName">Name:</string>
+    <string name="txtTitlePrice">Price:</string>
+    <string name="txtTitleAmount">In Stock:</string>
+    <string name="txtTitleDisc">Discription:</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnDel">Delete</string>
 </resources>

@@ -26,6 +26,7 @@ public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
     int[]reminder;
     ItemClickListener itemClickListener;
     LayoutInflater inflater;
+    DataBaseHelper dbh;
 
     public RestaurantOpeningAdapter(Context context, String[]orderNums, String[]names, String[]amounts, int[]reminder){
         this.orderNums = orderNums;
@@ -34,6 +35,11 @@ public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
         this.reminder = reminder;
         inflater = LayoutInflater.from(context);
     }
+
+    String getReminder(int id){
+        return this.orderNums[id];
+    }
+
 
 
     @NonNull
@@ -87,9 +93,13 @@ public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
             txtOrderNum=itemView.findViewById(R.id.txtOrderNum);
             txtNameFood=itemView.findViewById(R.id.txtNameFood);
             chboxReminder=itemView.findViewById(R.id.chboxReminder);
-            chboxReminder.setOnClickListener(this);
+            chboxReminder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    itemClickListener.onItemClick(v,getAdapterPosition(), true);
+                }
+            });
         }
-
 
         @Override
         public void onClick(View v) {

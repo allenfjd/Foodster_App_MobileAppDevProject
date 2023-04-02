@@ -1,63 +1,84 @@
 package com.example.foodster_app_mobileappdevproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class AddNewFoodActivity extends AppCompatActivity {
     DataBaseHelper dbh ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_food);
+
+
         EditText newName = findViewById(R.id.txtDishName);
         EditText newPrice = findViewById(R.id.txtDishPrice);
         EditText newAmount = findViewById(R.id.txtDishNum);
         EditText newDiscrip = findViewById(R.id.txtDishDisc);
         Button btnPost = findViewById(R.id.btnSaveEdit);
-        Button btnRemove = findViewById(R.id.btnRemove);
         EditText newtimePickUp = findViewById(R.id.txtDishPickUp);
-        TextView txtResult = findViewById(R.id.txtResult2);
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         String restaurantId = preferences.getString("RestaurantID", "defaultValue");
         dbh = new DataBaseHelper(this);
-
-        btnRemove.setOnClickListener(new View.OnClickListener() {
+        Cursor foodStocksTable = dbh.viewDataFromFoodStocksTable(restaurantId);
+        String [] name = new String [foodStocksTable.getCount()];
+        String [] price = new String [foodStocksTable.getCount()];
+        int count = 0;
+        if(foodStocksTable.getCount()>0){
+            while (foodStocksTable.moveToNext()){
+                name[count] = foodStocksTable.getString(1);
+                price[count] = foodStocksTable.getString(4);
+                count++;
+            }
+        }
+        ArrayList<HashMap<String,String>> list = new ArrayList<>();
+        for(int i=0;i<name.length;i++){
+            HashMap<String,String> data = new HashMap<>();
+            data.put("Name", name[i]);
+            data.put("Price", "$"+price[i]);
+            list.add(data);
+        }
+        String [] from = {"Name", "Price"};
+        int [] to = {R.id.txtNameDel, R.id.txtPriceDel};
+        SimpleAdapter adapter = new SimpleAdapter(AddNewFoodActivity.this,list,R.layout.restaurant_delete_dish_layout,from,to);
+        ListView listView = findViewById(R.id.lstDelDish);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                String name = newName.getText().toString();
-                Cursor cursorFoodStockName = dbh.viewFoodStocksNameFoodRestaurantID(name,restaurantId);
-                boolean foodFound = false;
-                if(cursorFoodStockName.getCount()>0) {
-                    while (cursorFoodStockName.moveToNext()) {
-                        if((cursorFoodStockName.getString(1)).equals(name)) {
-                            if(dbh.deleteItem(name, restaurantId)) {
-                                Toast.makeText(AddNewFoodActivity.this, "Dish was deleted", Toast.LENGTH_LONG).show();
-                                foodFound = true;
-                            }else{
-                                Toast.makeText(AddNewFoodActivity.this, "Unsuccessful delete", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    }
-                }
-                if(!foodFound){
-                    Toast.makeText(AddNewFoodActivity.this, "No such dish in DB", Toast.LENGTH_LONG).show();
-                }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap<String,String> chosenData = list.get(position);
+                String chosenname = chosenData.get("Name");
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("editDish", chosenname);
+                editor.commit();
+                startActivity(new Intent(AddNewFoodActivity.this,DeleteConfirmActivity.class));
             }
         });
+
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +98,7 @@ public class AddNewFoodActivity extends AppCompatActivity {
                         Toast.makeText(AddNewFoodActivity.this, "Unsuccessful posting", Toast.LENGTH_LONG).show();
                     }
                 }
+                startActivity(new Intent(AddNewFoodActivity.this,AddNewFoodActivity.class));
            }
         });
     }

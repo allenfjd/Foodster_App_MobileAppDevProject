@@ -50,13 +50,11 @@ public class RestaurantEditFoodActivity extends AppCompatActivity {
 
         if(stockNameDishRestaurantId.getCount()>0){
             while (stockNameDishRestaurantId.moveToNext()){
-                if(stockNameDishRestaurantId.getString(1).equals(editDish)) {
                     name = stockNameDishRestaurantId.getString(1);
                     price = stockNameDishRestaurantId.getString(4);
                     amount = stockNameDishRestaurantId.getString(3);
                     discription = stockNameDishRestaurantId.getString(6);
                     timePickUp = stockNameDishRestaurantId.getString(5);
-                }
             }
         }
         txtDishName.setText(name);

@@ -316,7 +316,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Cursor viewFoodStocksNameFoodRestaurantID(String foodName, String restaurantId) {
         SQLiteDatabase database = this.getReadableDatabase();
 
-        String query = "SELECT * FROM " + TABLE_FOR_FOODOFRESTAURANT_NAME + " WHERE " + "FoodName = '" + foodName+"' AND RestaurantId = '" + restaurantId+"'";
+        String query = "SELECT * FROM " + TABLE_FOR_FOODOFRESTAURANT_NAME + " WHERE FoodName = '" + foodName + "' AND RestaurantId = '" + restaurantId+"'";
         Cursor cursor = database.rawQuery(query, null);
 
         return cursor;
