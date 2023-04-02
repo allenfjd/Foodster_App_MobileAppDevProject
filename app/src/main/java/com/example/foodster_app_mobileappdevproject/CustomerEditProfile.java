@@ -40,6 +40,7 @@ public class CustomerEditProfile extends AppCompatActivity {
 
         CustomerFirstNameEditProfile.setText(firstNameCustomer);
         CustomerLastNameEditProfile.setText(lastNameCustomer);
+        CustomerMailEditProfile.setText(email);
         CustomerPhoneEditProfile.setText(phoneNumberCustomer);
         CustomerAdressEditProfile.setText(addressCustomer);
 

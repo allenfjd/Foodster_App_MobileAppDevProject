@@ -31,12 +31,15 @@ public class RestaurantEditProfile extends AppCompatActivity {
         String phoneNumberRestaurant = preferences.getString("PhoneNumberRestaurant", "");
         String address = preferences.getString("AddressRestaurant", "");
         String email = preferences.getString("RestaurantEmail", "defaultValue");
+        String restaurantName = preferences.getString("RestaurantName", "defaultValue");
+
 
         RestaurantFirstName.setText(firstNameOwner);
         RestaurantLastName.setText(lastNameOwner);
         RestaurantPhone.setText(phoneNumberRestaurant);
         RestaurantAdress.setText(address);
         RestaurantMail.setText(email);
+        Restaurant.setText(restaurantName);
         Button buttonSaveChanges = findViewById(R.id.btnRSaveChanges);
         buttonSaveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,13 +48,17 @@ public class RestaurantEditProfile extends AppCompatActivity {
                 String newLastName = RestaurantLastName.getText().toString();
                 String newPhone = RestaurantPhone.getText().toString();
                 String newAddress = RestaurantAdress.getText().toString();
-                System.out.println(newFirstName+newLastName+newAddress+newPhone);
-                dbh.updateInfo(email,newFirstName,newLastName,newPhone, newAddress);
+                String newRestaurantName = Restaurant.getText().toString();
+
+                System.out.println(newFirstName+newLastName+newAddress+newPhone+newRestaurantName);
+                dbh.updateInfo(email,newFirstName,newLastName,newPhone, newAddress ,newRestaurantName);
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("FirstNameOwner", newFirstName);
                 editor.putString("LastNameOwner", newLastName);
                 editor.putString("PhoneNumberRestaurant", newPhone);
                 editor.putString("AddressRestaurant", newAddress);
+                editor.putString("RestaurantName", newRestaurantName);
+
                 editor.apply();
 
 

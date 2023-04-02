@@ -11,12 +11,15 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="29dp"
+        android:layout_marginEnd="22dp"
         android:text="@string/txtEditProfile"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
+        app:layout_constraintEnd_toStartOf="@+id/etxtCNameEdit"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -24,11 +27,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="64dp"
         android:text="@string/txtName"
         android:textColor="@color/black"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtLast"
         app:layout_constraintEnd_toStartOf="@+id/etxtCNameEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -37,121 +41,120 @@
         android:id="@+id/txtLast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
 
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="37dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="29dp"
         android:text="@string/txtLast"
         android:textColor="@color/black"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etxtCEmailEdit"
         app:layout_constraintEnd_toStartOf="@+id/etxtCLastNameEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="62dp"
         android:text="@string/txtMail"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtNumber"
         app:layout_constraintEnd_toStartOf="@+id/etxtCEmailEdit"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLast" />
 
     <TextView
         android:id="@+id/txtNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="241dp"
-        android:layout_marginEnd="57dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="50dp"
         android:text="@string/txtNumber"
         android:textColor="@color/black"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etxtCPhoneEdit"
         app:layout_constraintEnd_toStartOf="@+id/etxtCPhoneEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtAdress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="50dp"
         android:text="@string/txtAdress"
         android:textColor="@color/black"
         android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etxtCAdressEdit"
         app:layout_constraintEnd_toStartOf="@+id/etxtCAdressEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNumber" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnRSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="46dp"
         android:text="@string/btnSaveChanges"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxtCAdressEdit" />
 
     <EditText
         android:id="@+id/etxtCNameEdit"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="53dp"
         android:ems="10"
         android:hint="@string/hintForFirstName"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtLast"
+        app:layout_constraintBottom_toBottomOf="@+id/txtLast"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtName"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etxtCLastNameEdit"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="59dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="50dp"
         android:ems="10"
         android:hint="@string/hintTextForLastName"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/etxtCEmailEdit"
+        app:layout_constraintBottom_toBottomOf="@+id/txtmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtLast"
-        app:layout_constraintTop_toTopOf="@+id/etxtCNameEdit" />
+        app:layout_constraintTop_toTopOf="@+id/txtName"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/etxtCEmailEdit"
         android:layout_width="0dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="144dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="181dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/etxtCAdressEdit"
+        app:layout_constraintBottom_toTopOf="@+id/btnRSaveChanges"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtmail"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etxtCPhoneEdit"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="@string/hint"
         android:inputType="phone"
@@ -163,13 +166,13 @@
     <EditText
         android:id="@+id/etxtCAdressEdit"
         android:layout_width="0dp"
-        android:layout_height="52dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="236dp"
         android:ems="10"
         android:hint="@string/hintTextForAddress"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btnRSaveChanges"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtAdress" />
 
