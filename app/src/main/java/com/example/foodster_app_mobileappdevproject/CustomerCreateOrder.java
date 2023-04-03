@@ -21,10 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class CustomerCreateOrder extends AppCompatActivity implements CustomerCreateOrderAdapter.ItemClickListener{
+public class CustomerCreateOrder extends AppCompatActivity{
 
     DataBaseHelper dbh;
-    CustomerCreateOrderAdapter adapter;
     List<Stock> stockList;
     OrderAdapter adapter1;
 
@@ -68,6 +67,7 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
 
         String finalAddress = address;
         String pickup = pickupTime;
+        String finalRestaurantIds = restaurantIds;
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +76,7 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
                     String totalPrice = calculatePrice();
                     Intent i = new Intent(CustomerCreateOrder.this,CustomerPickupOrder.class);
                     Bundle extras = new Bundle();
+                    extras.putString("Id", finalRestaurantIds);
                     extras.putString("address", finalAddress);
                     extras.putString("pickup", pickup);
                     extras.putString("order", order);
@@ -90,6 +91,7 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
                     extra.putString("address", finalAddress);
                     extra.putString("order", order);
                     extra.putString("price", totalPrice);
+                    extra.putString("Id", finalRestaurantIds);
                     a.putExtras(extra);
                     startActivity(a);
                 }
@@ -120,15 +122,12 @@ public class CustomerCreateOrder extends AppCompatActivity implements CustomerCr
                 Double initialPrice = Double.parseDouble(adapter1.getSelected().get(i).getDishPrice());
                  totalPrice += initialPrice;
             }
-            str.append("Total price: $" + totalPrice);
+            str.append(totalPrice);
             return str.toString().trim();
         }
         else{
             return "";
         }
     }
-    @Override
-    public void onItemClick(View view, int position) {
 
-    }
 }

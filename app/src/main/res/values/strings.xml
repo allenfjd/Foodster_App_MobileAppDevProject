@@ -122,4 +122,6 @@
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="finalOrder">ORDER NOW</string>
+    <string name="home">Home</string>
+    <string name="orders">Orders</string>
 </resources>

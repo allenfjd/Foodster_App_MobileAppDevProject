@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -7,10 +8,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CustomerProfile extends AppCompatActivity {
     TextView CustomerFirstName;
@@ -67,6 +71,26 @@ public class CustomerProfile extends AppCompatActivity {
                     editorToDelete.commit();
                 }
             });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_profile);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(CustomerProfile.this, CustomerOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(CustomerProfile.this, CustomerOrders.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        return true;
+                }
+                return false;
+            }
+
+        });
     }
     @Override
     protected void onResume() {
@@ -87,4 +111,6 @@ public class CustomerProfile extends AppCompatActivity {
         CustomerPhone.setText(phoneNumberCustomer);
         CustomerAdress.setText(addressCustomer);
     }
+
+
 }

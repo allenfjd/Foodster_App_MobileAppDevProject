@@ -19,6 +19,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CustomerOrders"
+            android:exported="false" />
+        <activity
             android:name=".CustomerPickupOrder"
             android:exported="false" />
         <activity

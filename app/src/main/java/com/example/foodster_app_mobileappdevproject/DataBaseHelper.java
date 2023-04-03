@@ -211,6 +211,18 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //METHOD TO VIEW DATA ORDER Table for a particular customer
+    public Cursor viewCustomerOrderTable(String customerEmail) {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT CustomerEmail, DeliveryorPickup, Date, Status, RestaurantName FROM " + TABLE_FOR_ORDER_NAME + " INNER JOIN " + TABLE_FOR_RESTAURANT_NAME
+                + " ON Order_Table.RestaurantId = Restaurant_Table.RestaurantId" + " WHERE " + "CustomerEmail = '" + customerEmail+"'";
+
+        Cursor cursor = database.rawQuery(query, null);
+
+        return cursor;
+    }
+
 
     //METHOD TO VIEW DATA of Restaurant Table
     public Cursor viewDataFromRestaurantTable() {
