@@ -31,33 +31,33 @@ public class CustomerOrders extends AppCompatActivity {
         String customerEmail = preferences.getString("CustomerEmail","DefaultValue");
         dbh =new DataBaseHelper(this);
         Cursor c = dbh.viewCustomerOrderTable(customerEmail);
-        String[] foodName = new String[c.getCount()];
+        String[] restaurantName = new String[c.getCount()];
         String[] deliveryOrPickup = new String[c.getCount()];
         String[] status = new String[c.getCount()];
         String[] date = new String[c.getCount()];
         int count = 0;
         if(c.getCount()>0){
             while (c.moveToNext()){
-                foodName[count] = c.getString(4);
-                deliveryOrPickup[count] = c.getString(6);
-                status[count] = c.getString(7);
-                date[count] = c.getString(3);
+                restaurantName[count] = c.getString(4);
+                deliveryOrPickup[count] = c.getString(1);
+                status[count] = c.getString(3);
+                date[count] = c.getString(2);
                 count++;
             }
         }
 
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
-        for(int i=0;i<foodName.length;i++){
+        for(int i=0;i<restaurantName.length;i++){
             HashMap<String,String> data = new HashMap<>();
-            data.put("Food", foodName[i]);
+            data.put("Restaurant", restaurantName[i]);
             data.put("deliveryOrPickup",deliveryOrPickup[i]);
             data.put("status",status[i]);
             data.put("date", date[i]);
             list.add(data);
         }
 
-        String[]from = {"Food","deliveryOrPickup","status","date"};
-        int[]to = {R.id.txtfoodOrdered,R.id.txtDeliveryOrPickup,R.id.txtStatus,R.id.txtOrderDate};
+        String[]from = {"Restaurant","deliveryOrPickup","status","date"};
+        int[]to = {R.id.txtRestaurantOrdered,R.id.txtDeliveryOrPickup,R.id.txtStatus,R.id.txtOrderDate};
 
         SimpleAdapter adapter = new SimpleAdapter(CustomerOrders.this,list,R.layout.list_orders,from,to);
         ListView listView = findViewById(R.id.lstOrders);
