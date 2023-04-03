@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class SendReminderActivity extends AppCompatActivity implements RestaurantOpeningAdapter.ItemClickListener{
     DataBaseHelper  dbh;
     RestaurantOpeningAdapter adapter;
+    TextView txtTEST;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +45,7 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
                     orderNums[count] = cursorOrderTable.getString(0);
                     foodNames[count] = cursorOrderTable.getString(4);
                     foodAmounts[count] = cursorOrderTable.getString(5);
-                    if(cursorOrderTable.getInt(8)>0){
-                        orderReminders[count]=1;
-                    }else{
-                        orderReminders[count]=0;
-                    }
+                    orderReminders[count]= cursorOrderTable.getInt(8);
                     count++;
                 }
             }
@@ -65,17 +62,16 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         String restaurantId = preferences.getString("RestaurantID", "defaultValue");
-        TextView txtResult=findViewById(R.id.txtResult2) ;
-        txtResult.setText("YO");
-        Cursor cursorOrderTable = dbh.viewDataOrderTable(restaurantId);
-        if(cursorOrderTable.getCount()>0){
-            while(cursorOrderTable.moveToNext()) {
-            if(cursorOrderTable.getInt(8)==1){
-                dbh.setTrueReminder(cursorOrderTable.getString(0));
-            }else{
-                dbh.setFalseReminder(cursorOrderTable.getString(0));
-            }
-            }
-        }
+        txtTEST.setText("helloo");
+//        Cursor cursorOrderTable = dbh.viewDataOrderTable(restaurantId);
+//        if(cursorOrderTable.getCount()>0){
+//            while(cursorOrderTable.moveToNext()) {
+//            if(cursorOrderTable.getInt(8)==1){
+//                dbh.setTrueReminder(cursorOrderTable.getString(0));
+//            }else{
+//                dbh.setFalseReminder(cursorOrderTable.getString(0));
+//            }
+//            }
+//        }
     }
 }
