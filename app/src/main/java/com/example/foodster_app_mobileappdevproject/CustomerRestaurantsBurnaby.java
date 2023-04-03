@@ -45,8 +45,8 @@ public class CustomerRestaurantsBurnaby extends AppCompatActivity {
             data.put("Id", String.valueOf(restaurantId[i]));
             list.add(data);
         }
-        String[]from = {"Restaurant","Address", "Id"};
-        int[]to = {R.id.restaurantName, R.id.restaurantAddress, R.id.testText};
+        String[]from = {"Restaurant","Address"};
+        int[]to = {R.id.restaurantName, R.id.restaurantAddress};
 
         SimpleAdapter adapter = new SimpleAdapter(CustomerRestaurantsBurnaby.this,
                 list,R.layout.customer_restaurants_list,from,to);
