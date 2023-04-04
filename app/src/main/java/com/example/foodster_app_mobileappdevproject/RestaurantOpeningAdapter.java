@@ -21,26 +21,20 @@ import java.util.ArrayList;
 
 public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
     String[]orderNums;
-    String[]names;
-    String[]amounts;
+    String[]displayNamesFood;
     int[]reminder;
     ItemClickListener itemClickListener;
     LayoutInflater inflater;
     DataBaseHelper dbh;
 
-    public RestaurantOpeningAdapter(Context context, String[]orderNums, String[]names, String[]amounts, int[]reminder){
+    public RestaurantOpeningAdapter(Context context, String[]orderNums, String[]displayNamesFood, int[]reminder){
         this.orderNums = orderNums;
-        this.names = names;
-        this.amounts = amounts;
+        this.displayNamesFood = displayNamesFood;
         this.reminder = reminder;
         inflater = LayoutInflater.from(context);
     }
 
-    String getReminder(int id){
-        return this.orderNums[id];
-    }
-
-
+    Integer getItem(int id){return reminder[id];}
 
     @NonNull
     @Override
@@ -53,31 +47,18 @@ public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ((ViewHolder)holder).txtOrderNum.setText("Order #"+orderNums[position]);
-        String displayNamesFood ="";
-        if(names[position].contains("|")){
-            String[] namesSepar = names[position].split("\\|");
-            String[] amountSepar = amounts[position].split("\\|");
-            for(int i=0; i<namesSepar.length; i++){
-                displayNamesFood += namesSepar[i]+" ("+amountSepar[i]+")\n ";
-            }
-        }else{
-            displayNamesFood = names[position]+" ("+amounts[position]+")";
-        }
-        ((ViewHolder)holder).txtNameFood.setText(displayNamesFood);
-        if(reminder[position]==1) {
-            ((ViewHolder) holder).chboxReminder.setChecked(true);
-        }else{
-            ((ViewHolder) holder).chboxReminder.setChecked(false);
-        }
+        ((ViewHolder)holder).txtNameFood.setText(displayNamesFood[position]);
+        ((ViewHolder)holder).imageBell.setImageResource(reminder[position]);
+
     }
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return displayNamesFood.length;
     }
 
-    void setOnClickListener(ItemClickListener nItemClickListener){
-        itemClickListener = nItemClickListener;
+    void setClickListener(ItemClickListener mItemClickListener){
+        itemClickListener = mItemClickListener;
     }
 
     public interface ItemClickListener{
@@ -86,27 +67,21 @@ public class RestaurantOpeningAdapter extends RecyclerView.Adapter {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView txtOrderNum;
         TextView txtNameFood;
-        CheckBox chboxReminder;
+        ImageView imageBell;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtOrderNum=itemView.findViewById(R.id.txtOrderNum);
             txtNameFood=itemView.findViewById(R.id.txtNameFood);
-            chboxReminder=itemView.findViewById(R.id.chboxReminder);
-            chboxReminder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    itemClickListener.onItemClick(v,getAdapterPosition(), true);
-                }
-            });
-        }
+            imageBell=itemView.findViewById(R.id.imgBell);
+            itemView.setOnClickListener(this);
+    }
 
         @Override
         public void onClick(View v) {
-            if(itemClickListener!=null) {
-                itemClickListener.onItemClick(v,getAdapterPosition());
+            if (itemClickListener != null)
+                itemClickListener.onItemClick(v, getAdapterPosition());
             }
         }
     }
-}
 
