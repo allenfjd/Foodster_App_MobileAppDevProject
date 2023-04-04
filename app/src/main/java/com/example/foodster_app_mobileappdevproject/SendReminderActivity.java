@@ -51,8 +51,9 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
                     if(foodNames[count].contains("|")) {
                         String[] namesSepar = foodNames[count].split("\\|");
                         String[] amountSepar = foodAmounts[count].split("\\|");
+                        displayNamesFood[count] = "";
                         for (int i = 0; i < namesSepar.length; i++) {
-                            displayNamesFood[count] = namesSepar[i] + " (" + amountSepar[i] + ")\n ";
+                            displayNamesFood[count] += namesSepar[i] + " (" + amountSepar[i] + ")\n ";
                         }
                     }else {
                         displayNamesFood[count] = foodNames[count]+" ("+foodAmounts[count]+")";
