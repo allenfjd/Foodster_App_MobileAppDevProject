@@ -30,7 +30,7 @@ public class MainActivityLogin extends AppCompatActivity {
         //DummyData
       dbh.addDataRestaurantTable("1", "1", "Kozak", "Nikolay",
                 "Shevchenko", "12367897789978", "New Westminster", "777 Royal st");
-        dbh.addDataRestaurantTable("murmur@gmail.com", "pasiki", "BestHavchik", "Vasiliy",
+        dbh.addDataRestaurantTable("murmur@gmail.com", "pasiki", "Best Havchik", "Vasiliy",
                 "Marchenko", "128129978", "North Vancouver", "1 Golden st");
         dbh.addDataRestaurantTable("chebur@gmail.com", "orange", "FreshOranges", "Cheburashka",
                 "Bezfamiliy", "0989978", "Burnaby", "34 Fifth st");
@@ -49,12 +49,12 @@ public class MainActivityLogin extends AppCompatActivity {
         dbh.addDataFoodStocksTable("1", "Donation for Ukraine","2023-01-14", "1000", "5", "", "Slava Ukraine");
         dbh.addDataFoodStocksTable("2", "BLUE Borsch","2023-01-14", "3", "23.23", "12:30", "Mammy approved");
 
-        dbh.addDataOrderTable("customer1@gmail.com", "1","2023-01-14", "Red Borsch|Pelmeni|Vodka","2|1|3", "PickUp", "Delivered",1);
+        dbh.addDataOrderTable("customer1@gmail.com", "1","2023-01-14", "Red Borsch|Pelmeni|Vodka","2|1|3", "PickUp", "In progress",0);
         dbh.addDataOrderTable("customer2@gmail.com", "2","2023-01-20", "Pelmeni|Vodka","1|1", "Delivery", "In progress",0);
         dbh.addDataOrderTable("customer1@gmail.com", "1","2023-01-25", "Vodka","1", "PickUp", "Delivered",1);
-        dbh.addDataOrderTable("customer3@gmail.com", "1","2023-01-29", "Vodka|Pelmeni","2|1", "Delivery", "In progress",0);
-        dbh.addDataOrderTable("customer3@gmail.com", "1","2023-01-29", "Vodka|Red Borsch","2|1", "Delivery", "In progress",0);
-        dbh.addDataOrderTable("customer4@gmail.com", "1","2023-01-29", "Donation for Ukraine","2", "PickUp","Delivered",0);
+        dbh.addDataOrderTable("customer3@gmail.com", "1","2023-01-29", "Vodka|Pelmeni","2|1", "Delivery", "In progress",1);
+        dbh.addDataOrderTable("customer3@gmail.com", "1","2023-01-29", "Vodka|Red Borsch","2|1", "Delivery", "In progress",1);
+        dbh.addDataOrderTable("customer4@gmail.com", "1","2023-01-29", "Donation for Ukraine","2", "PickUp","In progress",0);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override

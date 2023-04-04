@@ -322,6 +322,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //METHOD TO VIEW NOT DELIVERED ORDERS.
+    public Cursor viewNotDeleveredOrders(String restaurantId) {
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_FOR_ORDER_NAME + " WHERE RestaurantId = '" + restaurantId + "' AND Status = 'In progress'";
+        Cursor cursor = database.rawQuery(query, null);
+
+        return cursor;
+    }
+
+
     //METHOD TO DELETE item from FoodStock Table with particular Food name
     public Boolean deleteItem(String name, String restaurantId) {
         SQLiteDatabase database = this.getReadableDatabase();
@@ -340,14 +351,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     //METHOD TO MAKE REMINDER TRUE
     public Boolean setTrueReminder(String orderNum) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "UPDATE " + TABLE_FOR_ORDER_NAME + " SET " + "Reminder = " + 1 + " WHERE OrderID = '"+orderNum+"'";
+        String query = "UPDATE " + TABLE_FOR_ORDER_NAME + " SET " + "Reminder = '1' WHERE OrderID = '"+orderNum+"'";
         database.execSQL(query);
         return true;
     }
     //METHOD TO MAKE REMINDER FALSE
     public Boolean setFalseReminder(String orderNum) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "UPDATE " + TABLE_FOR_ORDER_NAME + " SET " + "Reminder = " + 0 + " WHERE OrderID = '"+orderNum+"'";
+        String query = "UPDATE " + TABLE_FOR_ORDER_NAME + " SET Reminder = '0' WHERE OrderID = '"+orderNum+"'";
         database.execSQL(query);
         return true;
     }
