@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,10 +8,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,6 +87,26 @@ public class GenerateReportsActivity extends AppCompatActivity {
                 editor.commit();
                 startActivity(new Intent(GenerateReportsActivity.this,RestaurantReportFormActivity .class));
             }
+        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestRepo);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(GenerateReportsActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(GenerateReportsActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(GenerateReportsActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
+            }
+
         });
     }
 }

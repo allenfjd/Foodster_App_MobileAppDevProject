@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -100,6 +104,27 @@ public class AddNewFoodActivity extends AppCompatActivity {
                 }
                 startActivity(new Intent(AddNewFoodActivity.this,AddNewFoodActivity.class));
            }
+        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestAdd);
+
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(AddNewFoodActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(AddNewFoodActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(AddNewFoodActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
+            }
+
         });
     }
 }

@@ -42,12 +42,14 @@ public class MainActivityLogin extends AppCompatActivity {
                 "1 Lenina st.", "392478238");
         dbh.addDataCustomerTable("corn@gmail.com", "corn", "Nikita", "Hrushev",
                 "9 Tention st.", "52345235");
+        dbh.addDataCustomerTable("2", "2", "Pavel", "Shchurov",
+                "121 Tenth street", "7785133844");
         dbh.addDataFoodStocksTable("1", "Red Borsch","2023-01-14", "3", "23.23", "12:30", "Mammy approved");
         dbh.addDataFoodStocksTable("1", "Salo","2023-01-14", "2", "50.23", "12:30", "Best appetiser");
         dbh.addDataFoodStocksTable("1", "Pelmeni","2023-01-14", "2", "10.23", "12:30", "with pork and beef");
         dbh.addDataFoodStocksTable("1", "Vodka","2023-01-14", "3", "27.23", "12:30", "0,5 litre");
         dbh.addDataFoodStocksTable("1", "Donation for Ukraine","2023-01-14", "1000", "5", "", "Slava Ukraine");
-        dbh.addDataFoodStocksTable("2", "BLUE Borsch","2023-01-14", "3", "23.23", "12:30", "Mammy approved");
+        dbh.addDataFoodStocksTable("2", "BLUE Borsch","2023-01-14", "3", "23.23", "12:30", "Mammy not approved");
 
         dbh.addDataOrderTable("customer1@gmail.com", "1","2023-01-14", "Red Borsch|Pelmeni|Vodka","2|1|3", "PickUp", "In progress",0);
         dbh.addDataOrderTable("customer2@gmail.com", "2","2023-01-20", "Pelmeni|Vodka","1|1", "Delivery", "In progress",0);

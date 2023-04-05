@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,9 +10,12 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SendReminderActivity extends AppCompatActivity implements RestaurantOpeningAdapter.ItemClickListener{
     DataBaseHelper  dbh;
@@ -73,6 +77,27 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestRem);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(SendReminderActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(SendReminderActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(SendReminderActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
+            }
+
+        });
+
     }
     @Override
     public void onItemClick(View view, int position) {
@@ -96,4 +121,5 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
         }
         startActivity(new Intent(SendReminderActivity.this,SendReminderActivity.class));
     }
+
 }

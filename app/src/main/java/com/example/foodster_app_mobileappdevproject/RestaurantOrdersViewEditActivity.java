@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,11 +8,14 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +26,6 @@ public class RestaurantOrdersViewEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_orders_view_edit);
-        TextView txtTEST = findViewById(R.id.txtTEST);
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
         String restaurantId = preferences.getString("RestaurantID", "defaultValue");
@@ -73,6 +76,25 @@ public class RestaurantOrdersViewEditActivity extends AppCompatActivity {
                 editor.putString("editDish", chosenname);
                 editor.commit();
                 startActivity(new Intent(RestaurantOrdersViewEditActivity.this,RestaurantEditFoodActivity.class));
+            }
+        });
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestOrders);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(RestaurantOrdersViewEditActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(RestaurantOrdersViewEditActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(RestaurantOrdersViewEditActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
             }
         });
     }

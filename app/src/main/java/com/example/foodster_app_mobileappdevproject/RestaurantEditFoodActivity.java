@@ -1,5 +1,6 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,10 +8,13 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -83,6 +87,26 @@ public class RestaurantEditFoodActivity extends AppCompatActivity {
                         Toast.makeText(RestaurantEditFoodActivity.this, "Unsuccessful", Toast.LENGTH_LONG).show();
                     }
                 }
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestEdDish);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(RestaurantEditFoodActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(RestaurantEditFoodActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(RestaurantEditFoodActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
             }
         });
 

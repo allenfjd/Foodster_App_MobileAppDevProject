@@ -1,22 +1,18 @@
 package com.example.foodster_app_mobileappdevproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class RestaurantOpeningActivity extends AppCompatActivity {
     DataBaseHelper dbh;
@@ -26,11 +22,9 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant_opening);
         TextView txtWelcome = findViewById(R.id.txtWelcome);
         Button btnAddRemove = findViewById(R.id.btnAddRemove);
-        Button btnViewEdit = findViewById(R.id.btnViewEdit);
         Button btnSendRemind = findViewById(R.id.btnSendRemind);
         Button btnGenReport = findViewById(R.id.btnGenReport);
         Button btnLogOut = findViewById(R.id.btnRlogOut);
-        Button btnProfile = findViewById(R.id.btnShowProfile);
 
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(this);
@@ -45,13 +39,6 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
         String email = preferences.getString("RestaurantEmail", "defaultValue");
         txtWelcome.setText("Welcome, "+firstNameOwner+"!");
 
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RestaurantOpeningActivity.this,RestaurantProfile.class));
-
-            }
-        });
         btnAddRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,12 +46,6 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
             }
         });
 
-        btnViewEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RestaurantOpeningActivity.this,RestaurantOrdersViewEditActivity.class));
-            }
-        });
 
 
         btnLogOut.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +69,28 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(RestaurantOpeningActivity.this,GenerateReportsActivity.class));
             }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigationRestDel);
+
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        startActivity(new Intent(RestaurantOpeningActivity.this, RestaurantOpeningActivity.class));
+                        return true;
+                    case R.id.navigation_orders:
+                        startActivity(new Intent(RestaurantOpeningActivity.this, RestaurantOrdersViewEditActivity.class));
+                        return true;
+                    case R.id.navigation_profile:
+                        startActivity(new Intent(RestaurantOpeningActivity.this, RestaurantProfile.class));
+                        return true;
+                }
+                return false;
+            }
+
         });
     }
 }

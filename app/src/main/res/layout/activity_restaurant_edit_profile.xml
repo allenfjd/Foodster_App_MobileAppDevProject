@@ -11,12 +11,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="16dp"
         android:text="@string/txtEditProfile"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -24,12 +26,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="40dp"
         android:text="@string/txtName"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/RPersonNameEditProfile"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -38,155 +41,171 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginTop="28dp"
         android:text="@string/txtLast"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/etxtRLastName"
+        app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etxtRLastName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
     <TextView
         android:id="@+id/txtmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginTop="28dp"
         android:text="@string/txtMail"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/etxtREmailEditProfile"
         app:layout_constraintEnd_toStartOf="@+id/etxtREmailEditProfile"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLast" />
 
     <TextView
         android:id="@+id/txtNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
         android:text="@string/txtNumber"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/etxtPhoneEditProfile"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/etxtPhoneEditProfile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtmail" />
 
     <TextView
         android:id="@+id/txtAdress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="265dp"
+        android:layout_marginTop="32dp"
         android:text="@string/txtAdress"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/etxtRAdressEditProfile"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNumber" />
 
     <Button
         android:id="@+id/btnRSaveChanges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
+        android:layout_marginTop="20dp"
         android:text="@string/btnSaveChanges"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxtRestaurantEditProfile" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
         android:text="@string/txtRestaurant"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/etxtRestaurantEditProfile"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/etxtRestaurantEditProfile"
+        app:layout_constraintHorizontal_bias="0.359"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
 
     <EditText
         android:id="@+id/RPersonNameEditProfile"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintForFirstName"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtLast"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtName"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:textColorHint="#757575" />
 
     <EditText
         android:id="@+id/etxtRLastName"
         android:layout_width="0dp"
         android:layout_height="50dp"
 
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintTextForLastName"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/txtNumber"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtLast"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/RPersonNameEditProfile"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/etxtREmailEditProfile"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="141dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="141dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/etxtRAdressEditProfile"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtmail"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/etxtRLastName" />
 
     <EditText
         android:id="@+id/etxtPhoneEditProfile"
-        android:layout_width="243dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hint"
         android:inputType="phone"
-        app:layout_constraintStart_toStartOf="@+id/etxtREmailEditProfile"
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxtREmailEditProfile" />
 
     <EditText
         android:id="@+id/etxtRAdressEditProfile"
-        android:layout_width="243dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintTextForAddress"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/txtAdress"
-        app:layout_constraintEnd_toEndOf="@+id/etxtRestaurantEditProfile"
-        app:layout_constraintTop_toBottomOf="@+id/txtAdress" />
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxtPhoneEditProfile"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <EditText
         android:id="@+id/etxtRestaurantEditProfile"
-        android:layout_width="243dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="68dp"
+        android:autofillHints=""
         android:ems="10"
         android:hint="@string/hintReasturantName"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/etxtRAdressEditProfile" />
+        android:textColorHint="#757575"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxtRAdressEditProfile"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigationRestEdProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
