@@ -113,7 +113,7 @@ public class RestaurantReportFormActivity extends AppCompatActivity {
                         startActivity(new Intent(RestaurantReportFormActivity.this, RestaurantOpeningActivity.class));
                         return true;
                     case R.id.navigation_orders:
-                        startActivity(new Intent(RestaurantReportFormActivity.this, RestaurantOrdersViewEditActivity.class));
+                        startActivity(new Intent(RestaurantReportFormActivity.this, GenerateReportsActivity.class));
                         return true;
                     case R.id.navigation_profile:
                         startActivity(new Intent(RestaurantReportFormActivity.this, RestaurantProfile.class));

@@ -87,7 +87,7 @@ public class SendReminderActivity extends AppCompatActivity implements Restauran
                         startActivity(new Intent(SendReminderActivity.this, RestaurantOpeningActivity.class));
                         return true;
                     case R.id.navigation_orders:
-                        startActivity(new Intent(SendReminderActivity.this, RestaurantOrdersViewEditActivity.class));
+                        startActivity(new Intent(SendReminderActivity.this, GenerateReportsActivity.class));
                         return true;
                     case R.id.navigation_profile:
                         startActivity(new Intent(SendReminderActivity.this, RestaurantProfile.class));

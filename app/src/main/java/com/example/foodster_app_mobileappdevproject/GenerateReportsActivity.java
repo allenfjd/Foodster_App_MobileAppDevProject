@@ -98,7 +98,7 @@ public class GenerateReportsActivity extends AppCompatActivity {
                         startActivity(new Intent(GenerateReportsActivity.this, RestaurantOpeningActivity.class));
                         return true;
                     case R.id.navigation_orders:
-                        startActivity(new Intent(GenerateReportsActivity.this, RestaurantOrdersViewEditActivity.class));
+                        startActivity(new Intent(GenerateReportsActivity.this, GenerateReportsActivity.class));
                         return true;
                     case R.id.navigation_profile:
                         startActivity(new Intent(GenerateReportsActivity.this, RestaurantProfile.class));

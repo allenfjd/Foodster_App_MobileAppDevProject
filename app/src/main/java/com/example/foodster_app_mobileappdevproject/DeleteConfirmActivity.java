@@ -81,7 +81,7 @@ public class DeleteConfirmActivity extends AppCompatActivity {
                         startActivity(new Intent(DeleteConfirmActivity.this, RestaurantOpeningActivity.class));
                         return true;
                     case R.id.navigation_orders:
-                        startActivity(new Intent(DeleteConfirmActivity.this, RestaurantOrdersViewEditActivity.class));
+                        startActivity(new Intent(DeleteConfirmActivity.this, GenerateReportsActivity.class));
                         return true;
                     case R.id.navigation_profile:
                         startActivity(new Intent(DeleteConfirmActivity.this, RestaurantProfile.class));

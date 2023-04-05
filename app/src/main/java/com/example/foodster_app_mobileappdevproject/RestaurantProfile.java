@@ -87,7 +87,7 @@ public class RestaurantProfile extends AppCompatActivity {
                         startActivity(new Intent(RestaurantProfile.this, RestaurantOpeningActivity.class));
                         return true;
                     case R.id.navigation_orders:
-                        startActivity(new Intent(RestaurantProfile.this, RestaurantOrdersViewEditActivity.class));
+                        startActivity(new Intent(RestaurantProfile.this, GenerateReportsActivity.class));
                         return true;
                     case R.id.navigation_profile:
                         startActivity(new Intent(RestaurantProfile.this, RestaurantProfile.class));
