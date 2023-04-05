@@ -75,23 +75,28 @@ public class CustomerDeliveryOrder extends AppCompatActivity {
         finalOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] theOrder = finalOrders.split("\n");
-                String result = "";
-                for (int i=0;i < theOrder.length; i++){
-                    String line = theOrder[i].trim();
-                    int spaceIndex = line.indexOf(" ");
-                    if(spaceIndex != -1){
-                        String firstWord = line.substring(0, spaceIndex);
-                        result += firstWord;
-                        if(i< theOrder.length -1){
-                            result += "|";
+                if(finalOrders.matches("no orders")){
+                    Toast.makeText(getApplicationContext(),"Please create an order",Toast.LENGTH_SHORT).show();
+                }else{
+                    String[] theOrder = finalOrders.split("\n");
+                    String result = "";
+                    for (int i=0;i < theOrder.length; i++){
+                        String line = theOrder[i].trim();
+                        int spaceIndex = line.indexOf(" ");
+                        if(spaceIndex != -1){
+                            String firstWord = line.substring(0, spaceIndex);
+                            result += firstWord;
+                            if(i< theOrder.length -1){
+                                result += "|";
+                            }
                         }
                     }
+
+                    dbh.addDataOrderTable(customerEmail, finalId, currentDate, result, String.valueOf(1), delivery, "In Progress", 0);
+                    Toast.makeText(getApplicationContext(),"Order created", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(CustomerDeliveryOrder.this, CustomerOpeningActivity.class));
                 }
 
-                dbh.addDataOrderTable(customerEmail, finalId, currentDate, result, String.valueOf(1), delivery, "In Progress", 0);
-                Toast.makeText(getApplicationContext(),"Order created", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CustomerDeliveryOrder.this, CustomerOpeningActivity.class));
             }
         });
     }

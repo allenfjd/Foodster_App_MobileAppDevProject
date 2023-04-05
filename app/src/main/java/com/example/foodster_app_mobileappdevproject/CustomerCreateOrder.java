@@ -68,11 +68,21 @@ public class CustomerCreateOrder extends AppCompatActivity{
         String finalAddress = address;
         String pickup = pickupTime;
         String finalRestaurantIds = restaurantIds;
+
+
+
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(radioPickup.isChecked()){
                     String order = getOrders();
+                    for (int j = 0; j < adapter1.getSelected().size(); j++) {
+                        if(Integer.parseInt(adapter1.getSelected().get(j).getAvailableAmount()) == 0){
+                            Toast.makeText(getApplicationContext(), "Item not available", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    String ordersOnly = ordersOnly();
                     String totalPrice = calculatePrice();
                     Intent i = new Intent(CustomerCreateOrder.this,CustomerPickupOrder.class);
                     Bundle extras = new Bundle();
@@ -81,10 +91,20 @@ public class CustomerCreateOrder extends AppCompatActivity{
                     extras.putString("pickup", pickup);
                     extras.putString("order", order);
                     extras.putString("price", totalPrice);
+                    extras.putString("ordersOnly", ordersOnly);
                     i.putExtras(extras);
                     startActivity(i);
+
+
+
                 }else if(radioDelivery.isChecked()){
                     String order = getOrders();
+                    for (int j = 0; j < adapter1.getSelected().size(); j++) {
+                        if(Integer.parseInt(adapter1.getSelected().get(j).getAvailableAmount()) == 0){
+                            Toast.makeText(getApplicationContext(), "Item not available", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
                     String totalPrice = calculatePrice();
                     Intent a = new Intent(CustomerCreateOrder.this,CustomerDeliveryOrder.class);
                     Bundle extra = new Bundle();
@@ -99,6 +119,19 @@ public class CustomerCreateOrder extends AppCompatActivity{
             }
         });
 
+    }
+
+
+    private String ordersOnly(){
+        if(adapter1.getSelected().size() > 0) {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < adapter1.getSelected().size(); i++) {
+                str.append(adapter1.getSelected().get(i).getDishName());
+                str.append("\n");
+            }
+            return str.toString().trim();
+        }
+        return "no orders";
     }
 
 
@@ -120,7 +153,7 @@ public class CustomerCreateOrder extends AppCompatActivity{
             StringBuilder str = new StringBuilder();
             for (int i = 0; i < adapter1.getSelected().size(); i++) {
                 Double initialPrice = Double.parseDouble(adapter1.getSelected().get(i).getDishPrice());
-                 totalPrice += initialPrice;
+                totalPrice += initialPrice;
             }
             str.append(totalPrice);
             return str.toString().trim();

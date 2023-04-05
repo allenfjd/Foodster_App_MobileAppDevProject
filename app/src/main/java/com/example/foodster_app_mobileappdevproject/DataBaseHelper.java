@@ -399,6 +399,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //METHOD TO UPDATE FOOD AMOUNT AFTER CUSTOMER ORDER
+    public Boolean updateFoodAmount(String foodName){
+        SQLiteDatabase database = this.getWritableDatabase();
+        String query = "UPDATE RestaurantFoodStocks_Table SET FoodAmount = CAST(FoodAmount AS INTEGER) - 1 || '' WHERE FoodName='" + foodName + "'";
+        database.execSQL(query);
+        return true;
+    }
+
 
 }
 
