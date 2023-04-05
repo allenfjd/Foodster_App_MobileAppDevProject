@@ -37,7 +37,7 @@ public class CustomerPickupOrder extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         String customerEmail = preferences.getString("CustomerEmail","DefaultValue");
-        dbh =new DataBaseHelper(this);
+        dbh = new DataBaseHelper(this);
 
         Bundle extras = getIntent().getExtras();
         String address = "";
@@ -45,13 +45,16 @@ public class CustomerPickupOrder extends AppCompatActivity {
         String orders = "";
         String price="";
         String id = "";
+        String ordersOnly ="";
         if (extras != null) {
             address = extras.getString("address");
             pickupTime = extras.getString("pickup");
             orders = extras.getString("order");
             price = extras.getString("price");
             id = extras.getString("Id");
+            ordersOnly= extras.getString("ordersOnly");
         }
+
         String formattedPrice ="";
         if (price.matches("")) {
             formattedPrice ="no orders";
@@ -66,29 +69,43 @@ public class CustomerPickupOrder extends AppCompatActivity {
         String finalId = id;
         String pickup = "Pickup";
         String finalOrders = orders;
+        String finalOrdersOnly = ordersOnly;
         finalOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] theOrder = finalOrders.split("\n");
-                String result = "";
-                for (int i=0;i < theOrder.length; i++){
-                    String line = theOrder[i].trim();
-                    int spaceIndex = line.indexOf(" ");
-                    if(spaceIndex != -1){
-                        String firstWord = line.substring(0, spaceIndex);
-                        result += firstWord;
-                        if(i< theOrder.length -1){
-                            result += "|";
+                if(finalOrders.matches("no orders")){
+                    Toast.makeText(getApplicationContext(),"Please create an order",Toast.LENGTH_SHORT).show();
+                }else{
+                    String[] theOrder = finalOrders.split("\n");
+                    String result = "";
+                    for (int i=0;i < theOrder.length; i++){
+                        String line = theOrder[i].trim();
+                        int spaceIndex = line.indexOf(" ");
+                        if(spaceIndex != -1){
+                            String firstWord = line.substring(0, spaceIndex);
+                            result += firstWord;
+                            if(i< theOrder.length -1){
+                                result += "|";
+                            }
                         }
                     }
+
+                    String orderArray[] = finalOrdersOnly.split("\n");
+                    for (int i = 0; i < orderArray.length; i++) {
+                        dbh.updateFoodAmount(orderArray[i]);
+                    }
+
+                    dbh.addDataOrderTable(customerEmail, finalId, currentDate, result, String.valueOf(1), pickup, "In Progress", 0);
+                    Toast.makeText(getApplicationContext(), "Order created", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(CustomerPickupOrder.this, CustomerOpeningActivity.class));
                 }
 
-                dbh.addDataOrderTable(customerEmail, finalId, currentDate, result, String.valueOf(1), pickup, "In Progress", 0);
-                Toast.makeText(getApplicationContext(), "Order created", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CustomerPickupOrder.this, CustomerOpeningActivity.class));
+
             }
         });
 
 
     }
+
+
 }
