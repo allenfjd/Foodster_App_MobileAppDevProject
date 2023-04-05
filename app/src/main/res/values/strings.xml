@@ -87,7 +87,7 @@
     <string name="btnSaveRemove">Save Changes</string>
     <string name="txtRemove">Remove</string>
     <string name="btnAddRem">Add New/Remove Food Items</string>
-    <string name="btnViewEdit">View/Edit Food Orders</string>
+    <string name="btnViewEdit">View/Edit posted Dishes</string>
     <string name="btnSendRemind">Send a Reminder</string>
     <string name="btnGenRepo">Generate Reports</string>
     <string name="btnLogOut">Log out</string>
