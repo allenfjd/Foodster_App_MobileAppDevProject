@@ -67,7 +67,7 @@ public class RestaurantOpeningActivity extends AppCompatActivity {
         btnGenReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RestaurantOpeningActivity.this,GenerateReportsActivity.class));
+                startActivity(new Intent(RestaurantOpeningActivity.this,RestaurantOrdersViewEditActivity.class));
             }
         });
 
